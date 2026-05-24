@@ -1566,6 +1566,32 @@ textarea.form-control {
   }
 }
 
+/* ========================================
+   CUSTOM GRID CLASSES
+======================================== */
+.leadership-grid, .construction-grid, .featured-blog-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-10);
+}
+
+.upcoming-project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.services-process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6);
+}
+
+.why-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
 @media (max-width: 1024px) {
   .section-title {
     font-size: 2.2rem;
@@ -1718,6 +1744,11 @@ textarea.form-control {
   .why-work-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* Other inline grid replacements */
+  .leadership-grid, .construction-grid, .featured-blog-card {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1735,7 +1766,7 @@ textarea.form-control {
   }
 
   .highlights-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .highlight-card {
