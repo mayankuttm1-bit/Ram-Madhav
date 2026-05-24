@@ -1883,6 +1883,18 @@ textarea.form-control {
   border: 1px solid var(--gray-200);
 }
 
+.hero-map-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .map-container iframe {
   width: 100%;
   height: 100%;
@@ -1938,6 +1950,32 @@ textarea.form-control {
   }
 }
 
+/* ========================================
+   FLOATING ACTION BUTTONS
+======================================== */
+.call-float {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--navy);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 6px 20px rgba(10, 25, 47, 0.4);
+  z-index: 999;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.call-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(10, 25, 47, 0.5);
+  background: var(--gold-dark);
+}
 /* ========================================
    WHATSAPP FLOATING BUTTON
 ======================================== */
@@ -2004,6 +2042,14 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+  .call-float {
+    bottom: 85px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+  }
+
   .whatsapp-float {
     bottom: 20px;
     right: 20px;
@@ -2017,115 +2063,8 @@ textarea.form-control {
     left: 15px;
     font-size: 0.85rem;
   }
-}
 
-/* ========================================
-   LEAD GENERATION ELEMENTS
-======================================== */
-.top-bar {
-  background: var(--navy);
-  color: var(--white);
-  padding: var(--space-2) 0;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-.top-bar .container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: var(--space-6);
-}
-.top-bar a {
-  color: var(--white);
-  transition: color var(--duration-fast) var(--ease);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.top-bar a:hover {
-  color: var(--gold);
-}
-
-.call-float {
-  position: fixed;
-  bottom: 105px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background-color: var(--gold);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: var(--shadow-lg);
-  z-index: 999;
-  transition: all var(--duration-normal) var(--ease);
-  border: none;
-  cursor: pointer;
-}
-.call-float:hover {
-  transform: translateY(-5px);
-  background-color: var(--gold-dark);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 25, 47, 0.8);
-  backdrop-filter: blur(5px);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--duration-normal) var(--ease);
-}
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-.modal-content {
-  background: var(--white);
-  width: 100%;
-  max-width: 500px;
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  position: relative;
-  transform: translateY(30px);
-  transition: transform var(--duration-normal) var(--ease);
-  box-shadow: var(--shadow-xl);
-}
-.modal-overlay.active .modal-content {
-  transform: translateY(0);
-}
-.modal-close {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--gray);
-  cursor: pointer;
-  transition: color var(--duration-fast) var(--ease);
-}
-.modal-close:hover {
-  color: var(--red);
-}
-
-@media (max-width: 768px) {
-  .top-bar {
-    display: none; /* Hide top bar on mobile to save vertical space */
-  }
-  .call-float {
-    bottom: 85px;
-    right: 20px;
-    width: 55px;
-    height: 55px;
-    font-size: 1.3rem;
+  .hero-map-container {
+    height: clamp(250px, 55vw, 400px);
   }
 }

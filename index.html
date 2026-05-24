@@ -16,14 +16,6 @@
 <body>
 
     <!-- ============================================
-         TOP CONTACT BAR
-    ============================================ -->
-    <div class="top-bar">
-        <div class="container">
-            <a href="tel:09111280169"><i class="fas fa-phone-alt"></i> 091112 80169</a>
-            <a href="mailto:rameshkushwah717@gmail.com"><i class="fas fa-envelope"></i> rameshkushwah717@gmail.com</a>
-        </div>
-    </div>    <!-- ============================================
          HEADER / NAVBAR
     ============================================ -->
     <header class="header" id="header">
@@ -76,12 +68,19 @@
                     <a href="tel:09111280169" class="btn btn-primary btn-lg">
                         <i class="fas fa-phone-alt"></i> Call Now
                     </a>
-                    <button onclick="openInquiryModal()" class="btn btn-ghost btn-lg">
-                        <i class="fas fa-envelope"></i> Inquire Now
-                    </button>
+                    <a href="contact.html" class="btn btn-ghost btn-lg">
+                        <i class="fas fa-envelope"></i> Send Inquiry
+                    </a>
                 </div>
 
         </div>
+    </section>
+
+    <!-- ============================================
+         2. LOCATION MAP (HERO)
+    ============================================ -->
+    <section class="hero-map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117763.55657388714!2d75.7938096!3d22.724128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd0034a7873b%3A0x67fa5dc7c1ff4260!2sSuper%20Corridor%2C%20Indore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1716300000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <!-- ============================================
@@ -554,45 +553,13 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- Floating Action Buttons -->
+    <a href="tel:09111280169" class="call-float" aria-label="Call Us">
+        <i class="fas fa-phone-alt"></i>
+    </a>
     <a href="https://wa.me/919111280169?text=Hello%2C%20I%20am%20interested%20in%20your%20real%20estate%20projects." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- ============================================
-         LEAD GENERATION: CALL FLOAT & MODAL
-    ============================================ -->
-    <a href="tel:09111280169" class="call-float" aria-label="Call Now">
-        <i class="fas fa-phone-alt"></i>
-    </a>
-
-    <div class="modal-overlay" id="globalInquiryModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalCloseBtn"><i class="fas fa-times"></i></button>
-            <h3 style="font-size: 1.5rem; color: var(--navy); margin-bottom: var(--space-2);">Quick Inquiry</h3>
-            <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: var(--space-6);">Get instant details from our experts.</p>
-            <form id="globalModalForm">
-                <div class="form-group">
-                    <label class="form-label" for="modal-name">Full Name *</label>
-                    <input type="text" class="form-control" id="modal-name" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="modal-phone">Phone Number *</label>
-                    <input type="tel" class="form-control" id="modal-phone" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="modal-interest">Interested In</label>
-                    <select class="form-control" id="modal-interest">
-                        <option value="">Please select...</option>
-                        <option value="Grand Riyasat - Plots">Grand Riyasat — Plots</option>
-                        <option value="Nakshatra Homes - Duplex">Nakshatra Homes — Duplex</option>
-                        <option value="Property Consulting">Property Consulting</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
-            </form>
-        </div>
-    </div>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
