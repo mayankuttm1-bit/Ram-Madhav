@@ -188,6 +188,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
-    });
+    // ─── Global Inquiry Modal Logic ───
+    const modalOverlay = document.getElementById('globalInquiryModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    
+    // Function to open modal
+    window.openInquiryModal = function() {
+        if (modalOverlay) {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+    };
+
+    // Function to close modal
+    window.closeInquiryModal = function() {
+        if (modalOverlay) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    };
+
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeInquiryModal);
+    }
+
+    // Close modal on outside click
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeInquiryModal();
+            }
+        });
+    }
+
+    // Handle global modal form submission
+    const globalModalForm = document.getElementById('globalModalForm');
+    if (globalModalForm) {
+        globalModalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('modal-name')?.value;
+            const phone = document.getElementById('modal-phone')?.value;
+            const interest = document.getElementById('modal-interest')?.value;
+
+            const waMessage = encodeURIComponent(
+                `Hello Ram Madhav Real Estate!\n\n` +
+                `Name: ${name}\n` +
+                `Phone: ${phone}\n` +
+                `Interested In: ${interest || 'General Inquiry'}\n\n` +
+                `Please get back to me.`
+            );
+
+            showNotification('Inquiry submitted! Redirecting to WhatsApp...');
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/919111280169?text=${waMessage}`, '_blank');
+                closeInquiryModal();
+                globalModalForm.reset();
+            }, 1500);
+        });
+    }
 
 });
