@@ -2068,3 +2068,219 @@ textarea.form-control {
     height: clamp(250px, 55vw, 400px);
   }
 }
+
+/* ========================================
+   PRELOADER
+======================================== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-logo {
+  width: 80px;
+  height: 80px;
+  animation: preloaderPulse 1.2s ease-in-out infinite;
+}
+
+.preloader-bar {
+  width: 120px;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.preloader-bar::after {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 3px;
+  animation: preloaderSlide 1s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.7; }
+}
+
+@keyframes preloaderSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+/* ========================================
+   PAGE TRANSITIONS
+======================================== */
+.page-transition {
+  animation: pageReveal 0.5s var(--ease-out) both;
+}
+
+@keyframes pageReveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   CUSTOM CURSOR (Desktop Only)
+======================================== */
+.custom-cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.25s ease;
+  mix-blend-mode: difference;
+  opacity: 0;
+}
+
+.custom-cursor.active {
+  opacity: 1;
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  background: rgba(212, 175, 55, 0.3);
+  border: 2px solid var(--gold);
+}
+
+@media (max-width: 1024px) {
+  .custom-cursor { display: none !important; }
+}
+
+/* ========================================
+   GLASSMORPHISM HEADER UPGRADE
+======================================== */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* ========================================
+   CUSTOM FOCUS STATES
+======================================== */
+.btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
+
+.form-control:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+/* ========================================
+   PARALLAX UTILITY
+======================================== */
+.parallax-bg img {
+  will-change: transform;
+  transition: none;
+}
+
+/* ========================================
+   TESTIMONIAL SLIDER
+======================================== */
+.testimonials-slider-wrapper {
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.testimonials-slider-wrapper:active {
+  cursor: grabbing;
+}
+
+.testimonials-slider-track {
+  display: flex;
+  gap: var(--space-8);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.testimonials-slider-track .testimonial-card {
+  min-width: 380px;
+  flex-shrink: 0;
+}
+
+.slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.slider-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.slider-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.1);
+}
+
+.slider-dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.slider-dot.active {
+  background: var(--gold);
+  width: 28px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-slider-track .testimonial-card {
+    min-width: calc(100vw - 60px);
+  }
+}
